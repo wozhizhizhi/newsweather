@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="news_weather" />
+    <version value="1" />
+
+    <list>
+        <mapping class="com.aji.newsweather.db.Province"></mapping>
+        <mapping class="com.aji.newsweather.db.City"></mapping>
+        <mapping class="com.aji.newsweather.db.County"></mapping>
+    </list>
+</litepal>
