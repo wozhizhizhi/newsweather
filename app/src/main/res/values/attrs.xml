@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyTitle">
+        <attr name="title_name" format="string"></attr>
+        <attr name="my_title_bg" format="color"></attr>
+        <attr name="my_title_rightiv" format="reference|color"></attr>
+        <attr name="my_title_leftiv" format="reference|color"></attr>
+    </declare-styleable>
+</resources>

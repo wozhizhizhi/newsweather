@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout_title_id"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:layout_height="45dp">
+    <ImageView
+        android:id="@+id/my_title_left_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="12dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ico_return"/>
+
+    <TextView
+        android:id="@+id/my_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:text="随你天"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"/>
+
+
+    <ImageView
+        android:id="@+id/my_title_right_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="12dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/title_right"/>
+
+
+</RelativeLayout>

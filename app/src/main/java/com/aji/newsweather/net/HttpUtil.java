@@ -1,10 +1,16 @@
 package com.aji.newsweather.net;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+import rx.Subscriber;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -15,7 +21,7 @@ import rx.subscriptions.CompositeSubscription;
 
 public class HttpUtil<T>
 {
-    private Retrofit retrofit;
+    protected Retrofit retrofit;
     private static HttpUtil httpUtil;
     private CompositeSubscription mSubscriptions;
     private Subscription subscription;
@@ -25,16 +31,22 @@ public class HttpUtil<T>
         createRetrofit();
     }
 
+    private static final OkHttpClient client = new OkHttpClient.Builder().
+            connectTimeout(60, TimeUnit.SECONDS).
+            readTimeout(60, TimeUnit.SECONDS).
+            writeTimeout(60, TimeUnit.SECONDS).build();
+
     private void createRetrofit()
     {
         retrofit = new Retrofit.Builder().baseUrl(IpService.HOST)
                                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                                         .addConverterFactory(GsonConverterFactory.create())
+                                        .client(client)
                                         .build();
         mSubscriptions = new CompositeSubscription();
     }
 
-    public static HttpUtil getHttpUtil()
+    public static HttpUtil getInstance()
     {
         if (httpUtil == null)
         {
@@ -43,14 +55,39 @@ public class HttpUtil<T>
         return httpUtil;
     }
 
-    private void getPost(Observable<HttpResult<T>> t , LoadTasksCallBack loadTasksCallBack)
+    public void getPost(Observable<HttpResult<T>> t , final LoadTasksCallBack loadTasksCallBack)
     {
-        IpService ipService = retrofit.create(IpService.class);
+        subscription = t.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<HttpResult<T>>()
+        {
+            @Override
+            public void onCompleted()
+            {
+                loadTasksCallBack.onFinish();
+            }
 
+            @Override
+            public void onError(Throwable e)
+            {
+                loadTasksCallBack.onFailed();
+            }
 
+            @Override
+            public void onNext(HttpResult<T> tHttpResult)
+            {
+                loadTasksCallBack.onSuccess(tHttpResult);
+            }
+
+            @Override
+            public void onStart()
+            {
+                loadTasksCallBack.onStart();
+            }
+        });
+
+        subscribe();
     }
 
-    public void subscribe()
+    private void subscribe()
     {
         if(subscription!=null)
         {

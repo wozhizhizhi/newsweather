@@ -1,12 +1,10 @@
 package com.aji.newsweather.net;
 
-import android.database.Observable;
-
 import com.aji.newsweather.db.Province;
 
-import retrofit2.Call;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import rx.Observable;
 
 /**
  * Author:zhangmiss on 2018/01/26 0026.
