@@ -18,7 +18,6 @@ import java.util.ListIterator;
 
 public class MyApplication extends Application
 {
-    private static MyApplication intance;
     public static Context context;
 
     public List<AppCompatActivity> activitys = new LinkedList<>();
@@ -30,10 +29,6 @@ public class MyApplication extends Application
         LitePal.initialize(this);
     }
 
-    public static MyApplication getInstance()
-    {
-        return intance;
-    }
 
     public static Context getContext()
     {

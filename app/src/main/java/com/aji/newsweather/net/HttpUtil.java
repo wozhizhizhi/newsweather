@@ -19,9 +19,9 @@ import rx.subscriptions.CompositeSubscription;
  * Descripiton:
  */
 
-public class HttpUtil<T>
+public class HttpUtil
 {
-    protected Retrofit retrofit;
+    public Retrofit retrofit;
     private static HttpUtil httpUtil;
     private CompositeSubscription mSubscriptions;
     private Subscription subscription;
@@ -55,39 +55,39 @@ public class HttpUtil<T>
         return httpUtil;
     }
 
-    public void getPost(Observable<HttpResult<T>> t , final LoadTasksCallBack loadTasksCallBack)
-    {
-        subscription = t.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<HttpResult<T>>()
-        {
-            @Override
-            public void onCompleted()
-            {
-                loadTasksCallBack.onFinish();
-            }
+//    public void getPost(Observable<HttpResult<T>> t , final LoadTasksCallBack loadTasksCallBack)
+//    {
+//        subscription = t.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<HttpResult<T>>()
+//        {
+//            @Override
+//            public void onCompleted()
+//            {
+//                loadTasksCallBack.onFinish();
+//            }
+//
+//            @Override
+//            public void onError(Throwable e)
+//            {
+//                loadTasksCallBack.onFailed();
+//            }
+//
+//            @Override
+//            public void onNext(HttpResult<T> tHttpResult)
+//            {
+//                loadTasksCallBack.onSuccess(tHttpResult);
+//            }
+//
+//            @Override
+//            public void onStart()
+//            {
+//                loadTasksCallBack.onStart();
+//            }
+//        });
+//
+//        subscribe();
+//    }
 
-            @Override
-            public void onError(Throwable e)
-            {
-                loadTasksCallBack.onFailed();
-            }
-
-            @Override
-            public void onNext(HttpResult<T> tHttpResult)
-            {
-                loadTasksCallBack.onSuccess(tHttpResult);
-            }
-
-            @Override
-            public void onStart()
-            {
-                loadTasksCallBack.onStart();
-            }
-        });
-
-        subscribe();
-    }
-
-    private void subscribe()
+    public void subscribe(Subscription subscription)
     {
         if(subscription!=null)
         {

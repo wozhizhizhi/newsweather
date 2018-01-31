@@ -15,7 +15,7 @@
     <com.aji.newsweather.weight.MyTitle
         android:id="@+id/fragment_mytitle_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="45dp"
         mytitle:my_title_bg="@color/colorAccent"
         mytitle:my_title_leftiv="@mipmap/ico_return"
         mytitle:my_title_rightiv="@mipmap/title_right"

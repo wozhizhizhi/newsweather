@@ -9,8 +9,7 @@ package com.aji.newsweather.base;
 /**
  * View层接口基类
  *
- * @author Hunter
- */
+ * @author Hunter */
 public interface IBaseView
 {
 

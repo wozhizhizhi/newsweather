@@ -36,11 +36,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     {
         super.onCreate(savedInstanceState);
         setContentView(getContentResId());
-        MyApplication.getInstance().addActivity(this);
         // 初始化View注入
         unbinder = ButterKnife.bind(this);
         initPresenter();
         initView();
+        MyApplication myApplication = (MyApplication) getApplication();
+        myApplication.addActivity(this);
     }
 
     protected abstract int getContentResId();
@@ -102,6 +103,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     {
         super.onDestroy();
         unbinder.unbind();
-        MyApplication.getInstance().removeActivity(this);
+        MyApplication myApplication = (MyApplication) getApplication();
+        myApplication.removeActivity(this);
     }
 }

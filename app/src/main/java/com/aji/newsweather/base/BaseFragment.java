@@ -17,7 +17,6 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment implements IBaseView
 {
     private View mLayoutView;
-    private Unbinder unbinder;
 
     /**
      * 初始化布局
@@ -113,12 +112,5 @@ public abstract class BaseFragment extends Fragment implements IBaseView
         {
             getBaseActivity().showToast(msg);
         }
-    }
-
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

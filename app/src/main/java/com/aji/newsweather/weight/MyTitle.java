@@ -107,4 +107,10 @@ public class MyTitle extends RelativeLayout
             my_title_left_iv.setVisibility(View.GONE);
         }
     }
+
+    public void setTitle(String title)
+    {
+        my_title_text.setText(title);
+    }
+
 }
