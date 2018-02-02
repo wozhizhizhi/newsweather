@@ -2,56 +2,47 @@ package com.aji.newsweather.db;
 
 import org.litepal.crud.DataSupport;
 
-/**
- * Author:zhangmiss on 2018/01/26 0026.
- * mail:867596152@qq.com
- * Descripiton:
- */
-
 public class County extends DataSupport
 {
-    private int id;
-    private String countyName;
-    private int cityId;
-    private int weatherId;
 
-    public int getId()
-    {
+    private int id;
+
+    private String countyName;
+
+    private String weatherId;
+
+    private int cityId;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getCountyName()
-    {
+    public String getCountyName() {
         return countyName;
     }
 
-    public void setCountyName(String countyName)
-    {
+    public void setCountyName(String countyName) {
         this.countyName = countyName;
     }
 
-    public int getCityId()
-    {
-        return cityId;
-    }
-
-    public void setCityId(int cityId)
-    {
-        this.cityId = cityId;
-    }
-
-    public int getWeatherId()
-    {
+    public String getWeatherId() {
         return weatherId;
     }
 
-    public void setWeatherId(int weatherId)
-    {
+    public void setWeatherId(String weatherId) {
         this.weatherId = weatherId;
     }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
 }

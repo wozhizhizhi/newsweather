@@ -1,6 +1,9 @@
 package com.aji.newsweather.net;
 
-import com.aji.newsweather.db.Province;
+
+import com.aji.newsweather.test.City;
+import com.aji.newsweather.test.County;
+import com.aji.newsweather.test.Province;
 
 import java.util.List;
 
@@ -23,4 +26,13 @@ public interface IpService
     // 请求返回所有的省份
     @GET
     Observable<List<Province>> getProvince(@Url String url);
+
+    // 请求返回所有的省份的城市
+    @GET
+    Observable<List<City>> getCity(@Url String url);
+
+    // 请求返回所有的省份的县
+    @GET
+    Observable<List<County>> getCounty(@Url String url);
 }
+

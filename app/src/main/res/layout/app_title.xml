@@ -11,8 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:padding="12dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ico_return"/>
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/my_title_text"
@@ -32,8 +31,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:padding="12dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/title_right"/>
+        android:scaleType="centerCrop" />
 
 
 </RelativeLayout>

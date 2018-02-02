@@ -28,6 +28,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView
      */
     public abstract void initView();
 
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {

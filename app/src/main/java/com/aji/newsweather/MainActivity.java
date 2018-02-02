@@ -26,16 +26,16 @@ public class MainActivity extends BaseActivity
     @Override
     public void initView()
     {
-        AreaFragment areaFragment = (AreaFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-        if (areaFragment == null)
+        ChooseAreaFragment chooseAreaFragment = (ChooseAreaFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if (chooseAreaFragment != null)
         {
-            areaFragment = AreaFragment.newInstance();
-            ActivityUtil.addFragmentToActivity(getSupportFragmentManager() , areaFragment , R.id.contentFrame);
+//           areaFragment = AreaFragment.newInstance();
+            ActivityUtil.addFragmentToActivity(getSupportFragmentManager() , chooseAreaFragment , R.id.contentFrame);
         }
     }
 
     @Override
-    public void initPresenter()
+    public void initData()
     {
 
     }

@@ -27,9 +27,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     public abstract void initView();
 
     /**
-     * 初始化控制中心
+     * 初始化数据中心
      */
-    public abstract void initPresenter();
+    public abstract void initData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         setContentView(getContentResId());
         // 初始化View注入
         unbinder = ButterKnife.bind(this);
-        initPresenter();
+        initData();
         initView();
         MyApplication myApplication = (MyApplication) getApplication();
         myApplication.addActivity(this);

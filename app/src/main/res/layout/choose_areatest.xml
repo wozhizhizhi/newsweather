@@ -13,17 +13,16 @@
 
     </LinearLayout>
     <com.aji.newsweather.weight.MyTitle
-        android:id="@+id/choosearea_mytitleId"
+        android:id="@+id/fragment_mytitle_id"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         mytitle:my_title_bg="@color/colorAccent"
-        mytitle:my_title_leftiv="@mipmap/ic_back"
         mytitle:title_name="天气">
 
     </com.aji.newsweather.weight.MyTitle>
 
     <ListView
-        android:id="@+id/choosearea_listviewId"
+        android:id="@+id/fragment_listview_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

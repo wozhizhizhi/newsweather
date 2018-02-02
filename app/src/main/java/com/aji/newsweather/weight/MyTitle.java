@@ -56,8 +56,8 @@ public class MyTitle extends RelativeLayout
         bgColor =  typedArray.getColor(R.styleable.MyTitle_my_title_bg , getResources().getColor(R.color.colorAccent));
         titleName = typedArray.getString(R.styleable.MyTitle_title_name);
         // 设置Imageview的图片
-        titlt_left_iv = typedArray.getResourceId(R.styleable.MyTitle_my_title_leftiv , R.mipmap.ico_return);
-        title_right_iv = typedArray.getResourceId(R.styleable.MyTitle_my_title_rightiv , R.mipmap.title_right);
+        titlt_left_iv = typedArray.getResourceId(R.styleable.MyTitle_my_title_leftiv , 0);
+        title_right_iv = typedArray.getResourceId(R.styleable.MyTitle_my_title_rightiv , 0);
     }
 
     private void initView(Context context)
