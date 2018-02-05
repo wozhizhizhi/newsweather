@@ -245,24 +245,30 @@ public class ChooseAreaFragment extends BaseFragment
     /**
      * 根据传入的地址和类型从服务器上查询省市县数据。
      */
-    private void queryFromServer(String address, final int type) {
+    private void queryFromServer(String address, final int type)
+    {
         showProgress("天气君正在加载之中");
-        OKHttpUtils.sendOkHttpRequest(address, new Callback() {
+        OKHttpUtils.sendOkHttpRequest(address, new Callback()
+        {
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, Response response) throws IOException
+            {
                 String responseText = response.body().string();
                 boolean result = false;
                 if (type == 0)
                 {
                     result = JsonUtil.handleProviceData(responseText);
-                } else if (type == 1)
+                }
+                else if (type == 1)
                 {
                     result = JsonUtil.handleCityData(responseText, selectedProvince.getId());
-                } else if (type == 2)
+                }
+                else if (type == 2)
                 {
                     result = JsonUtil.handleCountyData(responseText, selectedCity.getId());
                 }
-                if (result) {
+                if (result)
+                {
                     getActivity().runOnUiThread(new Runnable()
                     {
                         @Override
@@ -298,77 +304,4 @@ public class ChooseAreaFragment extends BaseFragment
             }
         });
     }
-
-
-//    private void queryFromServer(String address , final int type)
-//    {
-//        showProgress("天气君正在加载之中");
-//        OKHttpUtils.getInstance(getActivity()).getAsynHttp(address, new ResultCallback()
-//        {
-//            @Override
-//            public void onError(Request request, Exception e)
-//            {
-//                hideProgress();
-//                Toast.makeText(getActivity() , "天气君施法失败，请重试!" , Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onResponse(Response response) throws IOException
-//            {
-//                String responseStr = response.body().string();
-//                boolean result = false;
-//                switch (type)
-//                {
-//                    case 0:
-//                        try
-//                        {
-//                            result = JsonUtil.handleProviceData(responseStr);
-//                        }
-//                        catch (Exception e)
-//                        {
-//                            e.printStackTrace();
-//                        }
-//                        break;
-//                    case 1:
-//                        try
-//                        {
-//                            result = JsonUtil.handleCityData(responseStr , selectedProvince.getProvinceCode());
-//                        }
-//                        catch (Exception e)
-//                        {
-//                            e.printStackTrace();
-//                        }
-//                        break;
-//
-//                    case 2:
-//                        try
-//                        {
-//                            result = JsonUtil.handleCountyData(responseStr , selectedCity.getCityCode());
-//                        }
-//                        catch (Exception e)
-//                        {
-//                            e.printStackTrace();
-//                        }
-//                        break;
-//                }
-//                if(result)
-//                {
-//                        hideProgress();
-//                        if (type == 0)
-//                        {
-//                            queryProvinces();
-//                        }
-//                        else if (type == 1)
-//                        {
-//                            queryCitys();
-//                        }
-//                        else if (type == 2)
-//                        {
-//                            queryCountys();
-//                        }
-//                }
-//
-//            }
-//        });
-//    }
 }
