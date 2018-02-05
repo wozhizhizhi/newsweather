@@ -3,7 +3,7 @@ package com.aji.newsweather.net;
 /**
  * Author:zhangmiss on 2018/01/26 0026.
  * mail:867596152@qq.com
- * Descripiton:
+ * Descripiton:数据的封装,code message是统一的,不必每次都写
  */
 
 public class HttpResult<T>
