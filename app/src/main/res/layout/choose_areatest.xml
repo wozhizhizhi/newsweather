@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_above="@+id/my_title_left_iv"
-        android:background="@color/colorAccent">
-
-    </LinearLayout>
     <com.aji.newsweather.weight.MyTitle
         android:id="@+id/fragment_mytitle_id"
         android:layout_width="match_parent"

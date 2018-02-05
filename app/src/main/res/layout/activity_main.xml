@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <LinearLayout
+        android:id="@+id/satuts_id"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_above="@+id/my_title_left_iv"
+        android:background="@color/colorAccent"/>
     <FrameLayout
         android:id="@+id/contentFrame"
         android:layout_width="match_parent"

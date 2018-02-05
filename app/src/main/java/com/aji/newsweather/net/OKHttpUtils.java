@@ -22,24 +22,9 @@ import okhttp3.Response;
 
 public class OKHttpUtils
 {
-    private static volatile OKHttpUtils mInstance;
+    private static OKHttpUtils mInstance;
     private OkHttpClient mOKHttpClient;
     private Handler mHandler;
-
-    private OKHttpUtils(Context context)
-    {
-        //通过Context.getExternalFilesDir()方法可以获取到 SDCard/Android/data/你的应用的包名/files/ 目录，一般放一些长时间保存的数据
-        //通过Context.getExternalCacheDir()方法可以获取到 SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据
-        File sdcache = context.getExternalCacheDir();
-        int cacheSize = 10 * 1024 * 1024;
-        OkHttpClient.Builder builder = new OkHttpClient.Builder().writeTimeout(10 , TimeUnit.SECONDS)
-                                                                .readTimeout(20 , TimeUnit.SECONDS)
-                                                                .connectTimeout(15 , TimeUnit.SECONDS)
-                                                                .cache(new Cache(sdcache.getAbsoluteFile() , cacheSize));
-        mOKHttpClient = builder.build();
-        mHandler = new Handler();
-
-    }
 
     public static OKHttpUtils getInstance(Context context)
     {
@@ -54,6 +39,28 @@ public class OKHttpUtils
             }
         }
         return mInstance;
+    }
+
+    private OKHttpUtils(Context context)
+    {
+        //通过Context.getExternalFilesDir()方法可以获取到 SDCard/Android/data/你的应用的包名/files/ 目录，一般放一些长时间保存的数据
+        //通过Context.getExternalCacheDir()方法可以获取到 SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据
+//        File sdcache = context.getExternalCacheDir();
+//        int cacheSize = 10 * 1024 * 1024;
+        OkHttpClient.Builder builder = new OkHttpClient.Builder().writeTimeout(10 , TimeUnit.SECONDS)
+                                                                .readTimeout(20 , TimeUnit.SECONDS)
+                                                                .connectTimeout(15 , TimeUnit.SECONDS);
+//                                                                .cache(new Cache(sdcache.getAbsoluteFile() , cacheSize));
+        mOKHttpClient = builder.build();
+        mHandler = new Handler();
+
+    }
+
+    public static void sendOkHttpRequest(String address, okhttp3.Callback callback)
+    {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(address).build();
+        client.newCall(request).enqueue(callback);
     }
 
     /**

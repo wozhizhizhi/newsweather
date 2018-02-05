@@ -1,4 +1,4 @@
-package com.aji.newsweather;
+package com.aji.newsweather.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.aji.newsweather.R;
 import com.aji.newsweather.base.BaseFragment;
 import com.aji.newsweather.net.HttpUtil;
 import com.aji.newsweather.net.IpService;

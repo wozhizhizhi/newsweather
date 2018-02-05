@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NewsWeather</string>
+    <string name="net_error">请打开网络</string>
+    <string name="service_error">网络连接错误</string>
+    <string name="no_more_data">没有用更多数据......</string>
+    <string name="now_not_done">功能正在开发中，即将到来…</string>
+    <string name="exitProcedureAgain">再次按退出程序</string>
 </resources>
